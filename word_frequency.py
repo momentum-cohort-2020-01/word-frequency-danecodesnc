@@ -22,11 +22,22 @@ punctuation = '''!()-[]{};:'"\,<>./?@#$%^&*_~'''
 # my_str = input("Enter a string: ")
 
 # remove punctuation from the string
-no_punct = ""
-for char in data:
-   if char not in punctuation:
-       no_punct = no_punct + char
-        data_lower = no_punct.lower()
+# no_punct = ""
+# for char in data:
+#    if char not in punctuation:
+#         no_punct = no_punct + char
+#         data_lower = no_punct.lower()
+#         print(no_punct)
+
+print(split_string)
+
+for stop_word in split_string:
+    if stop_word in STOP_WORDS:
+        split_string.remove(stop_word)
+
+        print(split_string)
+        word_dict = {}
+
 
 # display the unpunctuated string
 # print(no_punct)
@@ -36,14 +47,18 @@ print(data_split)
 
 
 # Now I want this to be a list of words.    
-
-    for word in data_split:
-    if word in STOP_WORDS:
+no_stop_words = ""
+for word in data_split:
+    if word not in STOP_WORDS:
         no_stop_words = no_stop_words + word
+        remove_words = no_stop_words.words()
         print(no_stop_words)
-        data_split.remove(word)
-        return data_split
+        # data_split.remove(word)
+        # return data_split
 
+
+
+    # remove punctuation from the string
 
         # def print_word_free(file):
         #     """Read in 'file' and print out the frequency of words in that file."""
