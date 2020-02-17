@@ -1,4 +1,4 @@
-import string
+# import string
 
 STOP_WORDS = [
     'a', 'an', 'and', 'are', 'as', 'at', 'be', 'by', 'for', 'from', 'has', 'he',
@@ -12,22 +12,24 @@ with open('seneca_falls.txt', 'r') as f:
     data = f.read()
     print(data)
 
-    # remove = dict.fromkeys(map(ord, '\n ' + data.punctuation))
+    remove = dict.fromkeys(map(ord, '\n ' + data.punctuation))
 
 # define punctuation
 punctuation = '''!()-[]{};:'"\,<>./?@#$%^&*_~'''
 
 
 # To take input from the user
-# my_str = input("Enter a string: ")
+my_str = input("Enter a string: ")
 
 # remove punctuation from the string
-# no_punct = ""
-# for char in data:
-#    if char not in punctuation:
-#         no_punct = no_punct + char
-#         data_lower = no_punct.lower()
-#         print(no_punct)
+no_punct = ""
+for char in data:
+   if char not in punctuation:
+        no_punct = no_punct + char
+        data_lower = no_punct.lower()
+        print(no_punct)
+
+split_string = data_lower.split(" ")
 
 print(split_string)
 
@@ -53,7 +55,7 @@ for word in data_split:
         no_stop_words = no_stop_words + word
         remove_words = no_stop_words.words()
         print(no_stop_words)
-        # data_split.remove(word)
+        data_split.remove(word)
         # return data_split
 
 
