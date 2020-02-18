@@ -6,39 +6,61 @@ STOP_WORDS = [
     'will', 'with'
 ]
 
-print(string.punctuation)
+# print(string.punctuation)
 
 with open('seneca_falls.txt', 'r') as f:
     data = f.read()
     print(data)
 
-    remove = dict.fromkeys(map(ord, '\n ' + data.punctuation))
+    # remove = dict.fromkeys(map(ord, '\n ' + data.punctuation))
 
+
+
+no_punct = ""
 # define punctuation
 punctuation = '''!()-[]{};:'"\,<>./?@#$%^&*_~'''
+for character in data:
+    if character not in punctuation:
+        no_punct += character
+        # return no_punct
+    
 
 
+
+# print(no_punct)
 # To take input from the user
-my_str = input("Enter a string: ")
+# my_str = input("Enter a string: ")
 
-# remove punctuation from the string
-no_punct = ""
-for char in data:
-   if char not in punctuation:
-        no_punct = no_punct + char
-        data_lower = no_punct.lower()
-        print(no_punct)
+# # remove punctuation from the string
+# no_punct = ""
+# for char in data:
+#    if char not in punctuation:
+#         no_punct = no_punct + char
+#         data_lower = no_punct.lower()
+#         print(no_punct)
 
-split_string = data_lower.split(" ")
+split_string = no_punct.split(" ")
 
 print(split_string)
 
-for stop_word in split_string:
-    if stop_word in STOP_WORDS:
-        split_string.remove(stop_word)
+# def remove_stops (file)
+stops_removed = []
+i = 0
+while i < len(split_string):
+    if split_string[i] not in STOP_WORDS:
+        stops_removed.append(split_string[i])
+        i+=1
+        # return stops_removed
 
-        print(split_string)
-        word_dict = {}
+
+print(stops_removed)
+
+# for stop_word in split_string:
+#     if stop_word in STOP_WORDS:
+#         split_string.remove(stop_word)
+
+#         print(split_string)
+#         word_dict = {}
 
 
 # display the unpunctuated string
